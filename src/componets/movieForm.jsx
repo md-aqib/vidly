@@ -37,7 +37,7 @@ class MovieForm extends Form {
 
     this.setState({ data: this.mapToViewModel(movie) });
   }
-  mapToViewModel(movie) {
+  mapToViewModel = (movie) => {
     return {
       _id: movie._id,
       title: movie.title,
@@ -45,11 +45,11 @@ class MovieForm extends Form {
       numberInStock: movie.numberInStock,
       dailyRentalRate: movie.dailyRentalRate,
     };
-  }
-  doSubmit() {
+  };
+  doSubmit = () => {
     saveMovie(this.state.data);
     this.props.history.push("/movies");
-  }
+  };
   render() {
     return (
       <div>
