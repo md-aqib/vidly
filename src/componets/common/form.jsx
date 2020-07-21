@@ -20,6 +20,7 @@ class Form extends Component {
     const obj = { [name]: value };
     const schema = { [name]: this.schema[name] };
     const { error } = Joi.validate(obj, schema);
+
     if (!error) return null;
     return error.details[0].message;
   };
@@ -29,6 +30,7 @@ class Form extends Component {
     const errors = this.validate();
     this.setState({ errors: errors || {} });
     if (errors) return;
+
     this.doSubmit();
   };
   handleChange = ({ currentTarget: input }) => {
